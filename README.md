@@ -10,6 +10,7 @@ Using Express JS and Postgresql
 3. `npm install` if you get a missing package error just install or update that particular package
 4. Setup local DB `npm run init` it will create database and tables you need to use the api
 5. Start api running `npm run dev`
+6. For testing endpoints `npm test`
 
 #### Endpoints it has
 - POST sign up -> `/v1/users/signup` params to send: email, password & role. return: status 200, user & jwt

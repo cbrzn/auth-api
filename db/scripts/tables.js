@@ -1,6 +1,5 @@
 const path = require("path");
 const QueryFile = require("pg-promise").QueryFile;
-const fs = require("fs");
 const db = require("../").db;
 
 const createInitialTables = sql("../sql/init.sql");
