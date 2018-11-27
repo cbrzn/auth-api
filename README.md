@@ -13,7 +13,8 @@ Using Express JS and Postgresql
 6. For testing endpoints `npm test`
 
 #### Endpoints it has
-- POST sign up -> `/v1/users/signup` params to send: email, password & role. return: status 200, user & jwt
-- POST log in -> `/v1/users/login` params to send: email & password. return: status 200, user & jwt
+- POST sign up -> `/v1/users/signup/request` params to send: email, password return: status 200 & jwt
+- PUT assign role -> `v1/users/signup/complete` params to send: JWT as bearer token & user wants to be. return: status 200 & new jwt with role
+- POST log in -> `/v1/users/login` params to send: email & password. return: status 200 & jwt.
 - POST log out -> `/v1/users/logout` params to send: JWT. return: status 200
-- GET accessApp -> `/v1/` if the user is logged in (has a valid JWT sent via header as bearer token) will return the email & role of user, otherwise status 401
+- GET accessApp -> `/v1/` if the user is logged in (has a valid JWT sent as bearer token) and has already selected a role will return the email & role of user, if the user has not selected a role yet, it will send a message that it need to select one to go further.

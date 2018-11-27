@@ -5,8 +5,8 @@ const db = require("../").db;
 const createInitialTables = sql("../sql/init.sql");
 
 function sql(file) {
-  const fullPath = path.join(__dirname, file);
-  return new QueryFile(fullPath, { minify: true });
+    const fullPath = path.join(__dirname, file);
+    return new QueryFile(fullPath, { minify: true });
 }
 
 const tableCreation = () => {
@@ -14,11 +14,11 @@ const tableCreation = () => {
         console.error(error);
     })
     .then(async () => {
-      console.log("successfully created tables on DB");
+        console.log("successfully created tables on DB");
     })
     .catch(error => {
-      console.error(error);
-      console.error("Something went wrong. Execute reset.js");
+        console.error(error);
+        console.error("Something went wrong. Execute reset.js");
     })
 };
 

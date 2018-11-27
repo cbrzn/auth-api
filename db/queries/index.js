@@ -3,8 +3,8 @@ const path = require("path");
 
 // Helper for linking to external query files:
 function sql(file) {
-  const fullPath = path.join(__dirname, file); // generating full path;
-  return new QueryFile(fullPath, { minify: true });
+    const fullPath = path.join(__dirname, file); // generating full path;
+    return new QueryFile(fullPath, { minify: true });
 }
 
 module.exports = {
@@ -13,6 +13,7 @@ module.exports = {
         password: sql("../sql/user/checkPassword.sql"),
         new: sql("../sql/user/newUser.sql"),
         blacklist: sql("../sql/user/blacklistJwt.sql"),
-        logOut: sql("../sql/user/logOut.sql")
+        logOut: sql("../sql/user/logOut.sql"),
+        assignRole: sql("../sql/user/assignRole.sql")
     },
 }

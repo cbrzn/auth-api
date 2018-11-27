@@ -36,11 +36,11 @@ const checkPassword = password => {
 };
 
 
-const create = (email, password, role) => {
+const create = (email, password) => {
 	const add = (resolve, reject) => {
 		const queryCallback = async object => {
 			try {
-				const data = await object.one(query.new, [email, password, role])
+				const data = await object.one(query.new, [email, password])
 				resolve(data);
 				object.done();
 			} catch (e) {
@@ -88,5 +88,22 @@ const logOut = jwt => {
 	return new Promise(invalidateJwt);  
 }
 
-module.exports = { checkUser, checkPassword, create, checkBlacklist, logOut }
+const assignRole = (role, email) => {
+	const assign = (resolve, reject) => {
+		const queryCallback = async object => {
+			try {
+				const data = await object.one(query.assignRole, [role, email])
+				resolve(data);
+				object.done();
+			} catch (e) {
+				reject(e);
+				object.done();
+			}
+		};
+		db.connect().then(queryCallback).catch(e => reject(e));
+	};
+	return new Promise(assign)
+}
+
+module.exports = { checkUser, checkPassword, create, checkBlacklist, logOut, assignRole }
   
