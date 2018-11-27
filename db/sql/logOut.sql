@@ -1,0 +1,1 @@
+INSERT INTO blacklist (jwt) VALUES ($1);
