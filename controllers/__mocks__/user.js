@@ -9,11 +9,10 @@ const newSession = async (req, res) => {
     } 
 };
 
-const newUser = async (req, res) => {
-    const { email, password, role } = req.body
+const requestSignUp = async (req, res) => {
+    const { email, password } = req.body
     User.email = email
     User.password = password
-    User.role = role
     res.send({ status: 200 })
 }
 
@@ -21,4 +20,10 @@ const logOut = async (req, res) => {
     res.send({ status: 200 })
 }
 
-module.exports = { newSession, newUser, logOut }
+const assignRole = async (req, res) => {
+    const { role } = req.body 
+    User.role = role
+    res/send({ status: 200 })
+}
+
+module.exports = { newSession, requestSignUp, logOut, assignRole }

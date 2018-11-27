@@ -6,7 +6,7 @@ jest.mock("../middlewares/tokenVerify")
 
 const signUpTest = async () => {
     const response = await request(app)
-    .post("/v1/users/signup")
+    .post("/v1/users/signup/request")
     .send({ email: "test", password: "test" })
     expect(response.body.status).toBe(200)
 }
