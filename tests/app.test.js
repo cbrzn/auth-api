@@ -8,6 +8,16 @@ const signUpTest = async () => {
     const response = await request(app)
     .post("/v1/users/signup/request")
     .send({ email: "test", password: "test" })
+    const { status, token } = response.body
+    expect(status).toBe(200)
+    jwt = token
+}
+
+const assignRoleTest = async () => {
+    const response = await request(app)
+    .put("/v1/users/signup/complete")
+    .set("Authorization", `Bearer ${jwt}`)
+    .send({ role: "admin"})
     expect(response.body.status).toBe(200)
 }
 
@@ -37,7 +47,8 @@ const logOutTest = async () => {
 
 const signUp = test("Signup func", signUpTest)
 const logIn = test("Login func", logInTest)
-const authTestingFunc = [signUp, logIn]
+const assignRole = test("Assign role func", assignRoleTest)
+const authTestingFunc = [signUp, assignRole, logIn]
 
 const access = test("Access func" , accessTest)
 

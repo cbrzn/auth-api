@@ -13,7 +13,8 @@ const requestSignUp = async (req, res) => {
     const { email, password } = req.body
     User.email = email
     User.password = password
-    res.send({ status: 200 })
+    const token = jwt.sign(User, process.env.SECRET_KEY)
+    res.send({ status: 200, token })
 }
 
 const logOut = async (req, res) => {
@@ -23,7 +24,7 @@ const logOut = async (req, res) => {
 const assignRole = async (req, res) => {
     const { role } = req.body 
     User.role = role
-    res/send({ status: 200 })
+    res.send({ status: 200 })
 }
 
 module.exports = { newSession, requestSignUp, logOut, assignRole }
