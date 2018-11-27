@@ -9,10 +9,10 @@ function sql(file) {
 
 module.exports = {
     user: {
-        check: sql("../sql/checkUser.sql"),
-        password: sql("../sql/checkPassword.sql"),
-        new: sql("../sql/newUser.sql"),
-        blacklist: sql("../sql/blacklistJwt.sql"),
-        logOut: sql("../sql/logOut.sql")
+        check: sql("../sql/user/checkUser.sql"),
+        password: sql("../sql/user/checkPassword.sql"),
+        new: sql("../sql/user/newUser.sql"),
+        blacklist: sql("../sql/user/blacklistJwt.sql"),
+        logOut: sql("../sql/user/logOut.sql")
     },
 }
