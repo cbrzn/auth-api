@@ -5,10 +5,10 @@ Using Express JS and Postgresql
 2. Npm https://www.npmjs.com/get-npm
 3. Postgresql https://www.postgresql.org/download/
 #### 2. Start API
-1. `git clone https://github.com/cbrzn/auth-api`
+1. `git clone https://github.com/cbrzn/auth-api.git`
 2. `cd auth-api`
 3. `npm install` if you get a missing package error just install or update that particular package
-4. Setup local DB `npm run init` it will creata database and tables you need to use the api
+4. Setup local DB `npm run init` it will create database and tables you need to use the api
 5. Start api running `npm run dev`
 
 #### Endpoints it has
